@@ -6,7 +6,7 @@ var growish = (function () {
 	var gw_cssfile = "http://127.0.0.1:81/Growish/button%20plugin/css/gbutton.css";
     var product = { "cmd":"setInfo", "partner_id":"", "product_code":"", "name":"", "description":"", "img_url":"", "price":"", "product_url":"" };
     var btnmode = "default";
-    var gButton_img = "http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png";
+    var gButton_img;
     var gwModal = function () {
     var c = {}, a = {}, d = document.createElement("div"),
         b = document.createElement("div"),
@@ -152,15 +152,13 @@ var growish = (function () {
     return c
 }();
 
-		
+    setBmode();
+
     return {
 
         setBmode: function(mode){
             switch(mode) {
 
-                case 'default':
-                    gButton_img = "http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png";
-                break;
                 case 'minimal':
                     gButton_img = "http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png";
                 break;
