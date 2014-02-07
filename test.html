@@ -14,7 +14,15 @@
     
     <script src="gbutton.js"></script>
     <script>
-        growish.renderButton("507f191e810c19729de860ea","1K23fQW","Name Test","Description Test","http://placehold.it/180x250","120","http://google.com");
+      growish.renderButton(
+            "YOUR-PARTNER-CODE",
+            "<?php echo $model; ?>",
+            "<?php echo $heading_title; ?>",
+            "",
+            "<?php echo $thumb; ?>",
+            "<?php echo (float) preg_replace('/[^0-9.]+/', '', $price); ?>",
+            document.URL
+      );
     </script>    
   </body>
 </html>
