@@ -1,5 +1,3 @@
-console.log(Math.round((new Date()).getTime() / 1000));
-
 var growish = (function () {
 
     var lcc, ifrm;
