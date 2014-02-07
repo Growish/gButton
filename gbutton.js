@@ -155,7 +155,7 @@ var growish = (function () {
 		
     return {
 
-        setBtnmode: function(mode){
+        setBmode: function(mode){
             switch(mode) {
 
                 case 'default':
