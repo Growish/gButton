@@ -3,7 +3,7 @@ var growish = (function () {
     var lcc, ifrm;
     var gw_iframe_url = "https://pay-growish.digitalmagicslab.com/bframe";
     var allowed_origin = "https://pay-growish.digitalmagicslab.com";
-	var gw_cssfile = "http://127.0.0.1:81/Growish/button%20plugin/css/gbutton.css";
+	var gw_cssfile = "http://127.0.0.1:81/gButton/css/gbutton.css";
     var product = { "cmd":"setInfo", "partner_id":"", "product_code":"", "name":"", "description":"", "img_url":"", "price":"", "product_url":"" };
     var btnmode = "default";
     var gButton_img;
@@ -152,21 +152,19 @@ var growish = (function () {
     return c
 }();
 
-    setBmode();
-
     return {
 
         setBmode: function(mode){
             switch(mode) {
 
                 case 'minimal':
-                    gButton_img = "http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png";
+                    gButton_img = "http://127.0.0.1:81/gButton/img/gButtonDemo1.png";
                 break;
                 case 'extended':
-                    gButton_img = "http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png";
+                    gButton_img = "http://127.0.0.1:81/gButton/img/gButtonDemo2.png";
                 break;
                 default:
-                    gButton_img = "http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png";
+                    gButton_img = "http://127.0.0.1:81/gButton/img/gButtonDemo1.png";
                 }
         },
 
@@ -251,6 +249,8 @@ var growish = (function () {
             });
         }
     }
+
 }());
 
 growish.gw_loadCSS();
+growish.setBmode();
