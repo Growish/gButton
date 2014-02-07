@@ -5,7 +5,8 @@ var growish = (function () {
     var allowed_origin = "https://pay-growish.digitalmagicslab.com";
 	var gw_cssfile = "http://127.0.0.1:81/Growish/button%20plugin/css/gbutton.css";
     var product = { "cmd":"setInfo", "partner_id":"", "product_code":"", "name":"", "description":"", "img_url":"", "price":"", "product_url":"" };
-
+    var btnmode = "default";
+    var gButton_img = "http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png";
     var gwModal = function () {
     var c = {}, a = {}, d = document.createElement("div"),
         b = document.createElement("div"),
@@ -153,6 +154,24 @@ var growish = (function () {
 
 		
     return {
+
+        setBtnmode: function(mode){
+            switch(mode) {
+
+                case 'default':
+                    gButton_img = "http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png";
+                break;
+                case 'minimal':
+                    gButton_img = "http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png";
+                break;
+                case 'extended':
+                    gButton_img = "http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png";
+                break;
+                default:
+                    gButton_img = "http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png";
+                }
+        },
+
         renderButton: function(partner_id, product_code, name, description, img_url, price, product_url) {
             
             product["partner_id"] = partner_id;
@@ -164,7 +183,7 @@ var growish = (function () {
             product["product_url"] = product_url;
             product["partner_id"] = partner_id;
             
-            document.getElementById('growishButton').innerHTML = '<a href="#" onClick="growish.showModal(); return false;"><img src="http://127.0.0.1:81/ecommerceDemo/gButtonDemo1.png" /></a>';  
+            document.getElementById('growishButton').innerHTML = '<a href="#" onClick="growish.showModal(); return false;"><img src="' + gButton_img + '" /></a>';
         },
         gw_loadCSS: function() {
             var fileref=document.createElement("link");
