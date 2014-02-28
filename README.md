@@ -49,7 +49,7 @@ Usage
 * <b>*title:</b> Title or name of your product, you can use up to 150 charaters.
 * <b>description: </b> Description of your product, you can use up to 300 charaters.
 * <b>*image-url:</b> The url of the main image of your product.
-* <b>*price:</b> The product price, you can use up to two decimal spaces, point separated. (XXX.XX)
+* <b>*price:</b> The product price (+ shipping!), you can use up to two decimal spaces, point separated. (XXX.XX)
 * <b>*page:</b> The url of the product page, you can also use document.URL.
 
 <b>[*] mandatory field.</b>
