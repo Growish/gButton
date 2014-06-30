@@ -1,7 +1,7 @@
 var growish = (function () {
 
     var gw_popup_url = "https://growish.com/bframe";
-    var allowed_origin = "https://growish.com";
+    var allowed_origin = "*";
     var product = { "cmd":"setInfo", "partner_id":"", "product_code":"", "name":"", "description":"", "img_url":"", "price":"", "product_url":"" };
     var gButton_img;
     var gPopup;
