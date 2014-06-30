@@ -77,5 +77,4 @@ var growish = (function () {
     }
 
 }());
-
 growish.setBmode('blue');
