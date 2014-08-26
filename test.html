@@ -14,15 +14,16 @@
     
     <script src="gbutton.js"></script>
     <script>
-      growish.renderButton(
-            "YOUR-PARTNER-CODE",
-            "<?php echo $model; ?>",
-            "<?php echo $heading_title; ?>",
-            "",
-            "<?php echo $thumb; ?>",
-            "<?php echo (float) preg_replace('/[^0-9.]+/', '', $price); ?>",
-            document.URL
-      );
+        growish.load( { 
+            partnerId: "YOUR-PARTNER-CODE",
+            productCode: "<?php echo $model; ?>",
+            productName: "<?php echo $heading_title; ?>",
+            productDescription: <?php echo json_encode(strip_tags($description)); ?>,
+            productImageUrl: "<?php echo $thumb; ?>",
+            productPrice: "<?php echo (float) preg_replace('/[^0-9.]+/', '', $price); ?>",
+            productUrl: document.URL,
+            productShippingCostIncluded: false
+        } );
     </script>    
   </body>
 </html>
