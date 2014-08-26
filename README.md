@@ -32,25 +32,27 @@ Usage
 ```html
 <!--On website footer:-->
     <script>
-        growish.renderButton(
-            "<your-partner-code>",
-            "<product-code>",
-            "<product-title>",
-            "<product-description>",
-            "<product-image-url>",
-            "<product-price>",
-            "<product-page>"
-        );
+            growish.load( { 
+            partnerId: "<your-partner-code>",
+            productCode: "<product-code>",
+            productName: "<product-title>",
+            productDescription: "<product-description>",
+            productImageUrl: "<product-image-url>",
+            productPrice: "<product-price>",
+            productUrl: "<product-page>",
+            productShippingCostIncluded: true
+        });
     </script>  
 ```
 
-* <b>*partner-code:</b> An alphanumeric code given to all our partner, serve to identify you site as a valid partner site.
-* <b>*code:</b> This is the code of your product, you can use up to 50 characters to identify it.
-* <b>*title:</b> Title or name of your product, you can use up to 150 charaters.
-* <b>description: </b> Description of your product, you can use up to 300 charaters.
-* <b>*image-url:</b> The url of the main image of your product.
-* <b>*price:</b> The product price (+ shipping!), you can use up to two decimal spaces, point separated. (XXX.XX)
-* <b>*page:</b> The url of the product page, you can also use document.URL.
+* <b>*partnerId:</b> An alphanumeric code given to all our partner, serve to identify you site as a valid partner site.
+* <b>*productCode:</b> This is the code of your product, you can use up to 50 characters to identify it.
+* <b>*productName:</b> Title or name of your product, you can use up to 150 charaters.
+* <b>productDescription: </b> Description of your product, you can use up to 300 charaters.
+* <b>*productImageUrl:</b> The url of the main image of your product.
+* <b>*productPrice:</b> The product price (+ shipping!), you can use up to two decimal spaces, point separated. (XXX.XX)
+* <b>*productUrl:</b> The url of the product page, you can also use document.URL.
+* <b>*productShippingCostIncluded:</b> Boolean value to define is shipping cost is already included in productPrice.
 
 <b>[*] mandatory field.</b>
 
