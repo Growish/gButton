@@ -32,7 +32,7 @@ Usage
 ```html
 <!--On website footer:-->
     <script>
-            growish.load( { 
+        growish.load( { 
             partnerId: "<your-partner-code>",
             productCode: "<product-code>",
             productName: "<product-title>",
