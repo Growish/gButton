@@ -1,6 +1,7 @@
 var growish = (function () {
 
     var gw_popup_url = "https://pay.growish.com/bframe";
+    var loadedFlag = false;
     var allowed_origin = "https://pay.growish.com";
     var product = { "cmd":"setInfo", "partner_id":"", "product_code":"", "name":"", "description":"", "img_url":"", "price":"", "product_url":"" };
     var gButton_img;
@@ -43,7 +44,7 @@ var growish = (function () {
                 gPopup.focus();
             }
         },
-
+        //DEPRECATED
         renderButton: function(partner_id, product_code, name, description, img_url, price, product_url) {
             if(parseFloat(price)<=999) {
                 product["partner_id"] = partner_id;
@@ -53,10 +54,33 @@ var growish = (function () {
                 product["img_url"] = img_url;
                 product["price"] = price;
                 product["product_url"] = product_url;
-                product["partner_id"] = partner_id;
                 window.addEventListener("message", growish.receiver, false);
                 document.getElementById('growishButton').innerHTML = '<a href="#" onClick="growish.firePopup(\'' + gw_popup_url + '\' ,\'Growish\',620,400); return false;"><img src="' + gButton_img + '" /></a>';
             }
+        },
+        load: function(options, debug) {
+            var cPrice = parseFloat(options['productPrice']);
+            if(cPrice <=999 && cPrice > 49) {
+                product["partner_id"] = options['partnerId'];
+                product["product_code"] = options['productCode'];
+                product["name"] = options['productName'];
+                product["description"] = options['productDescription'];
+                product["img_url"] = options['productImageUrl'];
+                product["price"] = cPrice;
+                product["product_url"] = options['productUrl'];
+                product["shipping_included"] = options['productShippingCostIncluded'];
+
+                if(!loadedFlag)
+                    window.addEventListener("message", growish.receiver, false);
+
+                loadedFlag = true;
+                document.getElementById('growishButton').innerHTML = '<a href="#" onClick="growish.firePopup(\'' + gw_popup_url + '\' ,\'Growish\',620,400); return false;"><img src="' + gButton_img + '" /></a>';
+            } else if((cPrice>999 || cPrice<50) && typeof debug != "undefined" && debug) {
+                growish.debugOutput("Product price over the allowed range");
+            }
+        },
+        debugOutput: function(msg) {
+            console.log("*** (GROWISH API) DEBUG MSG: " + msg);
         },
         receiver: function(event) {
             if(event.origin === allowed_origin) {
