@@ -1,10 +1,8 @@
 var growish = (function () {
 
-    // var gw_popup_url = "https://pay.growish.com/bframe";
-    var gw_popup_url = "https://pay-growish.digitalmagicslab.com/bframe";
+    var gw_popup_url = "https://pay.growish.com/bframe";
     var loadedFlag = false;
-    // var allowed_origin = "https://pay.growish.com";
-    var allowed_origin = "https://pay-growish.digitalmagicslab.com";
+    var allowed_origin = "https://pay.growish.com";
     var product = { "cmd":"setInfo", "partner_id":"", "product_code":"", "name":"", "description":"", "img_url":"", "price":"", "product_url":"" };
     var gButton_img;
     var gPopup;
