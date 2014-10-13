@@ -1,8 +1,10 @@
 var growish = (function () {
 
-    var gw_popup_url = "https://pay.growish.com/bframe";
+    // var gw_popup_url = "https://pay.growish.com/bframe";
+    var gw_popup_url = "https://pay-growish.digitalmagicslab.com/bframe";
     var loadedFlag = false;
-    var allowed_origin = "https://pay.growish.com";
+    // var allowed_origin = "https://pay.growish.com";
+    var allowed_origin = "https://pay-growish.digitalmagicslab.com";
     var product = { "cmd":"setInfo", "partner_id":"", "product_code":"", "name":"", "description":"", "img_url":"", "price":"", "product_url":"" };
     var gButton_img;
     var gPopup;
@@ -55,7 +57,7 @@ var growish = (function () {
                 product["price"] = price;
                 product["product_url"] = product_url;
                 window.addEventListener("message", growish.receiver, false);
-                document.getElementById('growishButton').innerHTML = '<a href="#" onClick="growish.firePopup(\'' + gw_popup_url + '\' ,\'Growish\',620,400); return false;"><img src="' + gButton_img + '" /></a>';
+                document.getElementById('growishButton').innerHTML = '<a href="#" onClick="growish.firePopup(\'' + gw_popup_url + '/' + product['partner_id'] + '\' ,\'Growish\',620,400); return false;"><img src="' + gButton_img + '" /></a>';
             }
         },
         load: function(options, debug) {
@@ -74,7 +76,7 @@ var growish = (function () {
                     window.addEventListener("message", growish.receiver, false);
 
                 loadedFlag = true;
-                document.getElementById('growishButton').innerHTML = '<a href="#" onClick="growish.firePopup(\'' + gw_popup_url + '\' ,\'Growish\',620,400); return false;"><img src="' + gButton_img + '" /></a>';
+                document.getElementById('growishButton').innerHTML = '<a href="#" onClick="growish.firePopup(\'' + gw_popup_url + '/' + product['partner_id'] + '\' ,\'Growish\',620,400); return false;"><img src="' + gButton_img + '" /></a>';
             } else if((cPrice>999 || cPrice<50) && typeof debug != "undefined" && debug) {
                 growish.debugOutput("Product price over the allowed range");
             }
