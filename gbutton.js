@@ -61,7 +61,7 @@ var growish = (function () {
 
                 loadedFlag = true;
                 document.getElementById('growishButton').innerHTML = '<a href="#" onClick="growish.firePopup(\'' + gw_popup_url + '/' + product['partner_id'] + '\' ,\'Growish\',620,400); return false;"><img src="' + gButton_img + '" /></a>';
-            } else if((cPrice>999 || cPrice<50) && typeof debug != "undefined" && debug) {
+            } else if((cPrice>5000 || cPrice<50) && typeof debug != "undefined" && debug) {
                 growish.debugOutput("Product price over the allowed range");
             }
         },
