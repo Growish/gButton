@@ -44,23 +44,9 @@ var growish = (function () {
                 gPopup.focus();
             }
         },
-        //DEPRECATED
-        renderButton: function(partner_id, product_code, name, description, img_url, price, product_url) {
-            if(parseFloat(price)<=999) {
-                product["partner_id"] = partner_id;
-                product["product_code"] = product_code;
-                product["name"] = name;
-                product["description"] = description;
-                product["img_url"] = img_url;
-                product["price"] = price;
-                product["product_url"] = product_url;
-                window.addEventListener("message", growish.receiver, false);
-                document.getElementById('growishButton').innerHTML = '<a href="#" onClick="growish.firePopup(\'' + gw_popup_url + '/' + product['partner_id'] + '\' ,\'Growish\',620,400); return false;"><img src="' + gButton_img + '" /></a>';
-            }
-        },
         load: function(options, debug) {
             var cPrice = parseFloat(options['productPrice']);
-            if(cPrice <=999 && cPrice > 49) {
+            if(cPrice <=5000 && cPrice > 49) {
                 product["partner_id"] = options['partnerId'];
                 product["product_code"] = options['productCode'];
                 product["name"] = options['productName'];
