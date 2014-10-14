@@ -101,4 +101,4 @@ var growish = (function () {
     }
 
 }());
-growish.setBmode('blue');
+growish.setBmode('black');
