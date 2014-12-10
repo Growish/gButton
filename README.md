@@ -26,7 +26,7 @@ Usage
 
 ```html
 <!--On website header:-->
-<script type="text/javascript" language="javascript" src="https://b70a0da9b58b4dd5f85b-aba7ce2dbb3121f457ae706f7c576a08.ssl.cf3.rackcdn.com/gbutton.min.js">
+<script type="text/javascript" language="javascript" src="https://b70a0da9b58b4dd5f85b-aba7ce2dbb3121f457ae706f7c576a08.ssl.cf3.rackcdn.com/gbutton.min.js"></script>
 ```
 
 ```html
