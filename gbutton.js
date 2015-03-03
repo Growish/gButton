@@ -1,8 +1,8 @@
 var growish = (function () {
 
-    var gw_popup_url = "https://pay.growish.com/bframe";
+    var gw_popup_url = "https://growish.com/bframe";
     var loadedFlag = false;
-    var allowed_origin = "https://pay.growish.com";
+    var allowed_origin = "https://growish.com";
     var product = { "cmd":"setInfo", "partner_id":"", "product_code":"", "name":"", "description":"", "img_url":"", "price":"", "product_url":"" };
     var gButton_img;
     var gPopup;
@@ -56,17 +56,25 @@ var growish = (function () {
                 product["product_url"] = options['productUrl'];
                 product["shipping_included"] = options['productShippingCostIncluded'];
 
-                if(!loadedFlag)
+                if(!loadedFlag) {
                     window.addEventListener("message", growish.receiver, false);
+                    loadedFlag = true;
+                }
 
-                loadedFlag = true;
                 document.getElementById('growishButton').innerHTML = '<a href="#" onClick="growish.firePopup(\'' + gw_popup_url + '/' + product['partner_id'] + '\' ,\'Growish\',620,400); return false;"><img src="' + gButton_img + '" /></a>';
             } else if((cPrice>5000 || cPrice<50) && typeof debug != "undefined" && debug) {
                 growish.debugOutput("Product price over the allowed range");
             }
         },
+        changePrice: function(price) {
+            var cPrice = parseFloat(price);
+            if(cPrice <=5000 && cPrice > 49) {
+                product["price"] = cPrice;
+            }
+        },
         debugOutput: function(msg) {
-            console.log("*** (GROWISH API) DEBUG MSG: " + msg);
+            if (window.console)
+                console.log("*** (GROWISH API) DEBUG MSG: " + msg);
         },
         receiver: function(event) {
             if(event.origin === allowed_origin) {
